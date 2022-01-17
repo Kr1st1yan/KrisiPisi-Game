@@ -1,6 +1,8 @@
 import Field from "./Field";
 import Cat from "./Cat";
 import Mouse from "./Mouse";
+import Food from "./Food";
+import Portal from "./Portal";
 
 const ViewBox = () => {
     return (
@@ -8,6 +10,8 @@ const ViewBox = () => {
             <Field />
             <Cat />
             <Mouse />
+            <Food />
+            <Portal />
         </svg>
     );
 };
