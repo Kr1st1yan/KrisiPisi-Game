@@ -8,7 +8,6 @@ const Field = () => {
             y="0"
             width="1000"
             height="1000"
-            
         />
     );
 };
