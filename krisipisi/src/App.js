@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ViewBox from "./components/ViewBox";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    //let mouse = document.getElementById('4');
+
+    // document.addEventListener('mousemove', function(e) {
+    //     let x = e.clientX;
+    //     let y = e.clientY;
+    //     console.log(x);
+    //     console.log(y);
+    //     mouse.style.left = x + "px";
+    //     mouse.style.top = y + "px";
+    // })
+
+    return (
+        <div className="App">
+            <div
+                style={{
+                    width: "1000px",
+                    height: "1000px",
+                    // display: "inline-flex",
+                    // margin: "30px",
+                }}
+            >
+                <ViewBox />
+            </div>
+        </div>
+    );
 }
 
 export default App;
