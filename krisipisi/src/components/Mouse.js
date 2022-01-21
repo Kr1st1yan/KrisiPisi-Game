@@ -1,67 +1,77 @@
-import { useState,memo } from "react";
-import _ from 'lodash';
+import { useState, useEffect } from "react";
+let cursorX = 100;
+let cursorY = 100;
+const mouseCneterAdjustment = 10;
 
+const Mouse = () => {
+    const initialState = [
+        [100, 100],
+        [100, 120],
+        [120, 120],
+        [120, 100],
+    ];
 
+    const [coordinates, setCoordinates] = useState(initialState);
+    const [speed,setSpeed]= useState(15);
 
-function Mouse(props){
+    document.onmousemove = (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+    };
 
-    let {coordinates, setCoordinates, cursorX, setCursorX, cursorY, setCursorY} = props;
-    let svgcoord;
-        const str = function () {
-            let cords = "M ";
-            coordinates.forEach((cord) => (cords += ` ${cord[0]},${cord[1]}`));
-    
-            console.log("zadavam koordinati");
-            return (cords += " Z");
-        };
+    const str = function () {
+        let cords = "M ";
+        coordinates.forEach((cord) => (cords += ` ${cord[0]},${cord[1]}`));
 
+        return (cords += " Z");
+    };
 
-    
     const move = () => {
-
         let mouseX = 0;
         let mouseY = 0;
         let moveX = 0;
         let moveY = 0;
-        // console.log(`X:${x} Y:${y}`);
-        // console.log(`X2:${mouseX} Y2:${mouseY}`);
-        mouseX = coordinates[0][0];
-        mouseY = coordinates[0][1];
-    
-        //console.log(mouseY - y);
-        //console.log(mouseX - x);
-        if (mouseX - cursorX < 0) {
-            moveX = 1;
-        } else if (mouseX - cursorX > 0) {
-            moveX = -1;
+
+        mouseX = coordinates[0][0] + mouseCneterAdjustment;
+        mouseY = coordinates[0][1] + mouseCneterAdjustment;
+
+        const xPosReached = Math.abs(mouseX - cursorX) < speed / 2; 
+
+        if (!xPosReached && mouseX - cursorX < 0) {
+            moveX = speed;
+        } else if (!xPosReached && mouseX - cursorX > 0) {
+            moveX = -speed;
         }
-    
-        if (mouseY - cursorY > 0) {
-            moveY = -1;
-        } else if (mouseY - cursorY < 0) {
-            moveY = 1;
+
+        const yPosReached = Math.abs(mouseY - cursorY) < speed / 2; 
+
+        if (!yPosReached && mouseY - cursorY > 0) {
+            moveY = -speed;
+        } else if (!yPosReached && mouseY - cursorY < 0) {
+            moveY = speed;
         }
-        
+
         const newArr = coordinates.map((arr) => {
             mouseX = arr[0] + moveX;
             mouseY = arr[1] + moveY;
-    
+
             return [mouseX, mouseY];
         });
-        if(moveX!==0 || moveY!==0){
-            console.log(newArr,coordinates);
+
+        if (moveX !== 0 || moveY !== 0) {
             setCoordinates(newArr);
         }
-
     };
 
-    move();
+    useEffect(() => {
+        let myInterval = setInterval(move, 100);
 
-    return <path d={str()} fill="grey"/>;
+        return () => {
+            clearInterval(myInterval);
+        };
+    });
+
+    return <path d={str()} fill="grey" />;
 };
 
-
-
 export default Mouse;
-
-{/* <path d="M 100,100 100,120 120,120 120,100 Z" fill="grey" /> */}
