@@ -4,15 +4,32 @@ import Cat from "./Cat";
 import Mouse from "./Mouse";
 import Food from "./Food";
 import Portal from "./Portal";
-import _ from "lodash";
 
 const ViewBox = () => {
-    
+    const initialState = [
+        [100, 100],
+        [100, 120],
+        [120, 120],
+        [120, 100],
+    ];
+
+    const [coordinates, setCoordinates] = useState(initialState);
+    const [mouseSpeed, setMouseSpeed] = useState(15);
+
     return (
         <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 1000">
             <Field />
-            <Cat />
-            <Mouse key={'mouse'}/>
+            <Mouse
+                key={"mouse"}
+                coordinates={coordinates}
+                speed={mouseSpeed}
+                setCoordinates={setCoordinates}
+            />
+            <Cat
+                key={"cat"}
+                mouseCoordinates={coordinates}
+                speed={mouseSpeed - 10}
+            />
             <Food />
             <Portal />
         </svg>
