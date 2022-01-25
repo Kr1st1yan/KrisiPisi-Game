@@ -14,7 +14,6 @@ const Mouse = (props) => {
 
     useEffect(() => {
         const update = () => {
-            console.log("mouse");
             let returnedValue = move(
                 props.coordinates,
                 cursorX,

@@ -25,12 +25,17 @@ const ViewBox = () => {
                 speed={mouseSpeed}
                 setCoordinates={setCoordinates}
             />
-            <Cat
+            {/* <Cat
                 key={"cat"}
+                mouseCoordinates={coordinates}s
+                mouseSpeed={mouseSpeed - 10}
+            /> */}
+            <Food
+                key={"food"}
                 mouseCoordinates={coordinates}
-                speed={mouseSpeed - 10}
+                mouseSpeed={mouseSpeed}
+                setMouseSpeed={setMouseSpeed}
             />
-            <Food />
             <Portal />
         </svg>
     );

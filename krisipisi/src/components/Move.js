@@ -13,7 +13,6 @@ const move = (
     mouseX = currentCordinates[0][0] + centerAdjustment;
     mouseY = currentCordinates[0][1] + centerAdjustment;
 
-    console.log(currentCordinates, targetToReachX, targetToReachY);
     const xPosReached = Math.abs(mouseX - targetToReachX) <= speed / 2;
 
     if (!xPosReached && mouseX - targetToReachX < 0) {
