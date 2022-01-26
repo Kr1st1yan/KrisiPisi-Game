@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import toStr from "./ToString";
 import move from "./Move";
+import collisionCheck from "./CollisionCheck";
 
 const centerAdjustment = 10;
 const speed = 5;
@@ -17,6 +18,10 @@ const Cat = (props) => {
 
     useEffect(() => {
         const update = () => {
+            if (collisionCheck(props.mouseCoordinates, catCoordinates)) {
+                alert("Game over");
+            }
+
             let returnedValue = move(
                 catCoordinates,
                 props.mouseCoordinates[0][0],
