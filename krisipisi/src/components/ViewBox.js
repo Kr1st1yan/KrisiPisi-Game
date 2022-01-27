@@ -33,7 +33,8 @@ const ViewBox = () => {
             />
             <Cat
                 key={"cat"}
-                mouseCoordinates={coordinates}s
+                mouseCoordinates={coordinates}
+                setCoordinates={setCoordinates}
                 mouseSpeed={mouseSpeed - 10}
                 setMouseSpeed = {setMouseSpeed}
                 catSize={catSize}
@@ -48,7 +49,6 @@ const ViewBox = () => {
                 key={"portal"}
                 mouseCoordinates={coordinates}
                 setCoordinates={setCoordinates}
-                // mouseSize={mouseSize}
             />
         </svg>
     );
