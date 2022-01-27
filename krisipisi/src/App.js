@@ -9,8 +9,8 @@ function App() {
                 style={{
                     width: "1000px",
                     height: "1000px",
-                    // display: "inline-flex",
-                    // margin: "30px",
+                    display: "inline-flex",
+                    margin: "30px",
                 }}
             >
                 <ViewBox />

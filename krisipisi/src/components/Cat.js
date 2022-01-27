@@ -3,7 +3,6 @@ import toStr from "./ToString";
 import move from "./Move";
 import collisionCheck from "./CollisionCheck";
 
-const centerAdjustment = 10;
 const speed = 5;
 
 const Cat = (props) => {
@@ -19,7 +18,7 @@ const Cat = (props) => {
     useEffect(() => {
         const update = () => {
             if (collisionCheck(props.mouseCoordinates, catCoordinates)) {
-                alert("Game over");
+                alert("Game over!");
             }
 
             let returnedValue = move(
@@ -27,7 +26,7 @@ const Cat = (props) => {
                 props.mouseCoordinates[0][0],
                 props.mouseCoordinates[0][1],
                 speed,
-                centerAdjustment
+                props.catSize,
             );
 
             if (

@@ -4,12 +4,12 @@ import toStr from "./ToString";
 
 let cursorX = 100;
 let cursorY = 100;
-const mouseCenterAdjustment = 10;
 
 const Mouse = (props) => {
     document.onmousemove = (e) => {
-        cursorX = e.clientX;
-        cursorY = e.clientY;
+
+        cursorX = e.clientX + 500  - window.innerWidth / 2;
+        cursorY = e.clientY - 30;
     };
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Mouse = (props) => {
                 cursorX,
                 cursorY,
                 props.speed,
-                mouseCenterAdjustment
+                props.mouseSize,
             );
 
             if (

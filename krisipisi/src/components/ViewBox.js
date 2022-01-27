@@ -13,8 +13,13 @@ const ViewBox = () => {
         [120, 100],
     ];
 
+    const mouseSizeState = [20, 20];
+    const catSizeState = [40, 65];
+
     const [coordinates, setCoordinates] = useState(initialState);
     const [mouseSpeed, setMouseSpeed] = useState(15);
+    const [mouseSize, setMouseSize] = useState(mouseSizeState);
+    const [catSize, setCatSize] = useState(catSizeState)
 
     return (
         <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 1000 1000">
@@ -24,19 +29,27 @@ const ViewBox = () => {
                 coordinates={coordinates}
                 speed={mouseSpeed}
                 setCoordinates={setCoordinates}
+                mouseSize={mouseSize}
             />
-            {/* <Cat
+            <Cat
                 key={"cat"}
                 mouseCoordinates={coordinates}s
                 mouseSpeed={mouseSpeed - 10}
-            /> */}
+                setMouseSpeed = {setMouseSpeed}
+                catSize={catSize}
+            />
             <Food
                 key={"food"}
                 mouseCoordinates={coordinates}
                 mouseSpeed={mouseSpeed}
                 setMouseSpeed={setMouseSpeed}
             />
-            <Portal />
+            <Portal
+                key={"portal"}
+                mouseCoordinates={coordinates}
+                setCoordinates={setCoordinates}
+                // mouseSize={mouseSize}
+            />
         </svg>
     );
 };

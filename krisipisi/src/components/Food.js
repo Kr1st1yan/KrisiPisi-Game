@@ -30,8 +30,8 @@ const Food = (props) => {
                 console.log(props.mouseCoordinates);
                 console.log(props.mouseSpeed);
 
-                let x = Math.floor(Math.random() * 1000);
-                let y = Math.floor(Math.random() * 1000);
+                let x = Math.floor(Math.random() * 900) + 50;
+                let y = Math.floor(Math.random() * 900) + 50;
 
                 if (props.mouseSpeed >= 4.5) {
                     props.setMouseSpeed(props.mouseSpeed - 0.5);
