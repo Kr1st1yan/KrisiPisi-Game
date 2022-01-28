@@ -7,13 +7,13 @@ let cursorY = 100;
 
 const Mouse = (props) => {
     document.onmousemove = (e) => {
-
         cursorX = e.clientX + 500  - window.innerWidth / 2;
         cursorY = e.clientY - 30;
     };
 
     useEffect(() => {
         const update = () => {
+            
             let returnedValue = move(
                 props.coordinates,
                 cursorX,

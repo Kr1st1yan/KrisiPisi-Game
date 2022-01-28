@@ -25,11 +25,6 @@ const Food = (props) => {
     useEffect(() => {
         const update = () => {
             if (collisionCheck(foodCoordinates, props.mouseCoordinates)) {
-                console.log("az");
-                console.log(foodCoordinates);
-                console.log(props.mouseCoordinates);
-                console.log(props.mouseSpeed);
-
                 let x = Math.floor(Math.random() * 900) + 50;
                 let y = Math.floor(Math.random() * 900) + 50;
 
@@ -48,7 +43,7 @@ const Food = (props) => {
         };
     });
 
-    return <path d={toStr(foodCoordinates)} fill="brown" />;
+    return <path d={toStr(foodCoordinates)} fill="gold" />;
 };
 
 export default Food;

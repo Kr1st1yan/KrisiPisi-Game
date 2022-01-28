@@ -1,7 +1,7 @@
 const Field = () => {
     return (
         <rect
-            stroke="red"
+            stroke="purple"
             strokeWidth="7"
             fill="white"
             x="0"

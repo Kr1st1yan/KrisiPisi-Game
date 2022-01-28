@@ -36,7 +36,7 @@ const Portal = (props) => {
             y1={portal1Corrdinates[3][1]} 
             x2={portal1Corrdinates[2][0]}  
             y2={portal1Corrdinates[2][1]} 
-            stroke="green" 
+            stroke="red" 
             strokeWidth="3" />
     );
     const portal2 = (
@@ -45,7 +45,7 @@ const Portal = (props) => {
             y1={portal2Corrdinates[3][1]} 
             x2={portal2Corrdinates[2][0]} 
             y2={portal2Corrdinates[3][1]} 
-            stroke="green"
+            stroke="red"
             strokeWidth="3"
         />
     );
@@ -55,7 +55,7 @@ const Portal = (props) => {
             y1={portal3Corrdinates[1][1]} 
             x2={portal3Corrdinates[2][0]}  
             y2={portal3Corrdinates[2][1]} 
-            stroke="blue"
+            stroke="green"
             strokeWidth="3" />
     );
     const portal4 = (
@@ -64,7 +64,7 @@ const Portal = (props) => {
             y1={portal4Corrdinates[0][1]} 
             x2={portal4Corrdinates[3][0]} 
             y2={portal4Corrdinates[3][1]} 
-            stroke="blue"
+            stroke="green"
             strokeWidth="3"
         />
     );
