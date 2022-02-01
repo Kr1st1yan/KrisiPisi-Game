@@ -32,6 +32,7 @@ const Food = (props) => {
                     props.setMouseSpeed(props.mouseSpeed - 0.5);
                 }
 
+                props.setScore(props.score + 10);
                 setFoodCoordinates(coordFunc([x, y]));
             }
         };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import Field from "./Field";
 import Cat from "./Cat";
 import Mouse from "./Mouse";
@@ -6,7 +7,7 @@ import Food from "./Food";
 import Portal from "./Portal";
 
 
-const ViewBox = () => {
+const ViewBox = (props) => {
     const initialState = [
         [100, 100],
         [100, 120],
@@ -37,15 +38,21 @@ const ViewBox = () => {
                 key={"cat"}
                 mouseCoordinates={coordinates}
                 setCoordinates={setCoordinates}
-                mouseSpeed={mouseSpeed - 10}
+                // mouseSpeed={mouseSpeed - 10}
                 setMouseSpeed = {setMouseSpeed}
                 catSize={catSize}
+                usernameScore={props.usernameScore}
+                setUsernameScore={props.setUsernameScore}
+                score={props.score}
+                setScore={props.setScore}
             />
             <Food
                 key={"food"}
                 mouseCoordinates={coordinates}
                 mouseSpeed={mouseSpeed}
                 setMouseSpeed={setMouseSpeed}
+                score={props.score}
+                setScore={props.setScore}
             />
             <Portal
                 key={"portal"}

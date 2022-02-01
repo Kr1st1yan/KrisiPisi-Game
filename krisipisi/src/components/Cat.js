@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import toStr from "./ToString";
 import move from "./Move";
 import collisionCheck from "./CollisionCheck";
+var username;
 
 const speed = 5;
+
+var myUsername = function(){
+    return username;
+}
 
 const Cat = (props) => {
     const initialState = [
@@ -13,12 +18,12 @@ const Cat = (props) => {
         [840, 800],
     ];
 
-    const [catCoordinates, setCatCoordinates] = useState(initialState);
+   const [catCoordinates, setCatCoordinates] = useState(initialState);
 
     useEffect(() => {
         const update = () => {
             if (collisionCheck(props.mouseCoordinates, catCoordinates)) {
-                alert("Game over!");
+
                 props.setCoordinates([
                     [100, 100],
                     [100, 120],
@@ -26,6 +31,10 @@ const Cat = (props) => {
                     [120, 100],
                 ]);
                 setCatCoordinates(initialState);
+                let name = prompt(`GameOver! :(\nYour score is ${props.score} (1 cheese = 10 points)\nEnter your username below`, '');
+                let user = {username: name, score: props.score}
+                props.setUsernameScore([...props.usernameScore, user])
+                props.setScore(0);
                 
             }else{
 
@@ -51,7 +60,7 @@ const Cat = (props) => {
         return () => {
             clearInterval(myInterval);
         };
-    });
+    },[catCoordinates]);
 
     return <path d={toStr(catCoordinates)} fill="lightblue" />;
 };

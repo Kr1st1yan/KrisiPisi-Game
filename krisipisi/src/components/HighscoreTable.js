@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 
     const classes = useStyles();
     const rows = props.userScoresMap.sort((userScoreA, userScoreB) => userScoreB.score - userScoreA.score);
-
+    console.log(props);
     return (
         <TableContainer style={{maxHeight: 1030}} component={Paper}>
             <Table className={classes.table} aria-label="simple table">
@@ -50,9 +50,3 @@ const useStyles = makeStyles({
  }
 
  export default HighscoreTable;
-
-// const HighscoreTable = () => {
-//     return <div style={{ width: "470px", height: "1030px", backgroundColor:"red" }}>Kriskata</div>;
-// };
-
-// export default HighscoreTable;

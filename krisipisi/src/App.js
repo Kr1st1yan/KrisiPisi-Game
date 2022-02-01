@@ -1,7 +1,12 @@
 import "./App.css";
 import ViewBox from "./components/ViewBox";
 import HighscoreTable from "./components/HighscoreTable";
+import { useState } from "react";
+
 function App() {
+    const [usernameScore, setUsernameScore] = useState([]);
+    const [score, setScore] = useState(0);
+
     return (
         <div
             className="App"
@@ -19,7 +24,32 @@ function App() {
                     borderStyle: "solid",
                 }}
             >
-                Description
+                <p
+                    style={{
+                        color: "red",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Your score is: {score}
+                </p>
+
+                <p
+                    style={{
+                        color: "blue",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Game rules:
+                </p>
+                <p
+                    style={{
+                        color: "black",
+                        fontWeight: "bold",
+                    }}
+                >
+                    The mouse follows your cursor and the cat is chasing the
+                    mouse. Your goal is to eat as much cheese slices as you can
+                </p>
             </div>
             <div
                 style={{
@@ -29,7 +59,12 @@ function App() {
                     margin: "30px",
                 }}
             >
-                <ViewBox />
+                <ViewBox
+                    usernameScore={usernameScore}
+                    setUsernameScore={setUsernameScore}
+                    score={score}
+                    setScore={setScore}
+                />
             </div>
             <div
                 style={{
@@ -40,44 +75,7 @@ function App() {
                     borderStyle: "solid",
                 }}
             >
-                <HighscoreTable
-                    userScoresMap={[
-                        { username: "az", score: 50 },
-                        { username: "ti", score: 40 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                        { username: "pesho", score: 1000 },
-                    ]}
-                />
+                <HighscoreTable userScoresMap={usernameScore} />
             </div>
         </div>
     );
